@@ -33,11 +33,16 @@
                 return;
             }
 
-            const circumference = wristCircumference + Math.PI; // 손목 둘레 + 여유
-            const threadLength = circumference + 10; // 필요한 염주실 길이
-            const beadCount = Math.ceil(circumference / beadDiameter); // 필요한 염주알 개수
+            // 한 줄 꿰기 염주실 길이
+            const singleThreadLength = wristCircumference + Math.PI + 10; // 손목 둘레 + π + 10cm
+            const beadCount = Math.ceil(singleThreadLength / beadDiameter); // 필요 염주알 개수
 
-            document.getElementById('result').innerText = `필요한 염주실 길이: ${threadLength.toFixed(2)} cm\n필요한 염주알 개수: ${beadCount} 개`;
+            // 두 줄 꿰기 염주실 길이
+            const doubleThreadLength = (wristCircumference + Math.PI) * 2 + 20; // (손목 둘레 + π) * 2 + 20cm
+
+            document.getElementById('result').innerText = 
+                `한 줄 꿰기:\n염주실 길이: ${singleThreadLength.toFixed(2)} cm\n필요한 염주알 개수: ${beadCount} 개\n\n` +
+                `두 줄 꿰기:\n염주실 길이: ${doubleThreadLength.toFixed(2)} cm\n필요한 염주알 개수: ${beadCount} 개`;
         }
     </script>
 </body>
